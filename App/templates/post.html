@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="mt-4">
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% render_field form.content class="form-control" type="password" rows="2" placeholder="Write your post..." %}
+    <input class='btn btn-primary mt-4' type="submit" value="Post">
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="card mt-4">
+
+  {% if posts.author == user %}
+  <div class="function">
+    <a class='btn btn-sm btn-primary mt-2 ml-2' href="{% url 'update-post' posts.id %}">Update</a>
+    <a class='btn btn-sm btn-danger mt-2 ' href="{% url 'delete-post' posts.id %}">Delete</a>
+  </div>
+  {% endif %}
+
+  <div class="user-detail mt-4 ml-2">
+    <img class="rounded-circle" style="width:80px;height:80px" src="{{ posts.author.profile.image.url }}"
+      alt="proflie-pic">
+    <h3>{{ posts.author.first_name }} {{ posts.author.last_name }}</h3>
+  </div>
+  <p class="mt-2 ml-2">{{ posts.content }}</p>
+</div>
+<div id="like-section">
+  {% include 'likes.html' %}
+</div>
+
+<div class="container mt-4">
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% render_field form.content class="form-control" placeholder="Write a comment.." autocomplete="off" %}
+    <input class="btn btn-sm btn-primary mt-2 mb-2" type="submit" value="Comment">
+  </form>
+
+  {{ comments.count }} comment{{ comments|pluralize }}
+  {% for comment in comments %}
+  <blockquote class="card">
+    <p class="mb-0">{{ comment.content }}</p>
+    <footer class="blockquote-footer">{{ comment.user.first_name }} {{ comment.user.last_name }}</footer>
+  </blockquote>
+  {% endfor %}
+</div>
+{% endblock %}

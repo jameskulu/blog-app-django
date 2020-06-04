@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <h4>Searched result for: {{ query }}</h4>
+  {% if not posts %}
+  <p>Not found</p>
+  {% endif %}
+  {% for post in posts %}
+  <div class="card mt-4">
+    <a style="text-decoration: none; color:black;" href="{% url 'detail-post' post.id %}">
+      <div class="post">
+        <div class="user-detail">
+          <img src="{{ post.author.profile.image.url }}" alt="proflie-pic">
+          <h3>{{ post.author.first_name }} {{ post.author.last_name }}</h3>
+        </div>
+        <p>{{ post.content }}</p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

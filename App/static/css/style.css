@@ -1,0 +1,155 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+button{
+  font-family: 'Lato', sans-serif;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  background-color: #E9EBEE;
+}
+main{
+  width: 80%;
+  height: 100%;
+  margin: auto; 
+}
+/* Header */
+.header{
+  height: 50px;
+  width: 100%;
+  background-color: #4267B2;
+}
+.header-sm{
+  display: flex;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+}
+.logo{
+  flex: 3;
+  display: flex;
+}
+.logo h3{
+  font-size: 25px;
+  font-weight: 500;
+}
+.logo h3 a{
+  color: black;
+  text-decoration: none;
+}
+.nav{
+  flex: 1;
+}
+.nav ul{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav ul li a{
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+.login{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.login a{
+  text-decoration: none;
+  font-size: 14px;
+  padding: 5px 15px;
+  color: white;
+  border:1px solid black;
+  border-radius: 10px;
+}
+
+/* Adding Post */
+.adding-post{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.adding-post button{
+  padding: 10px 20px;
+  background-color: transparent;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+.adding-post button:hover{
+  background-color: #4267B2;
+  color: white;
+  transition: 0.3s ease;
+}
+
+/* Content */
+.content{
+  width: 50%;
+  height: 100%;
+  padding-top: 20px;
+  border-radius: 3px;
+}
+.post{
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 10px 10px;
+  background-color: white;
+}
+.post img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.post p{
+  margin-top: 5px;
+}
+.user-detail{
+  display: flex;
+}
+.user-detail h3{
+  margin-left: 5px;
+}
+
+
+
+/* Signup */
+
+.signup-content,.login-content{
+  height: 200px;
+  width: 400px;
+  /* background-color: red; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup-input{
+  width: 300px;
+  height: 30px;
+  outline: none;
+  padding: 20px 20px;
+}
+.signup-btn,.login-btn{
+  margin-top: 20px;
+  padding: 10px 30px;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}

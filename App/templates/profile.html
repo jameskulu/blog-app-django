@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="card mt-4">
+  <img style="height: 80px; width: 80px; border-radius: 50%; margin:auto;" src="{{ user.profile.image.url }}" alt="">
+  <h3 style="margin:auto;">{{ user.first_name }} {{ user.last_name }}</h3>
+  <p style="margin:auto;">{{ user.email }}</p>
+</div>
+
+<div class="card mt-4 mb-5">
+  <form method="POST" style="width: 80%; margin:auto;" class="mt-4" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label class="font-weight-bold" for="exampleInputEmail1">First Name</label>
+      {% render_field user_form.first_name class="form-control mt-2" %}
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="exampleInputPassword1">Last Name</label>
+      {% render_field user_form.last_name class="form-control mt-2" %}
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="exampleInputPassword1">Username</label>
+      {% render_field user_form.username class="form-control mt-2" %}
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="exampleInputPassword1">Email</label>
+      {% render_field user_form.email class="form-control mt-2" %}
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold" for="exampleInputPassword1">Image</label>
+      {<label class="font-weight-bold" for="exampleInputPassword1">Email</label>
+      {% render_field profile_form.image class="form-control mt-2" %}
+    </div>
+    <input class="btn btn-primary mt-2 mb-4" type="submit" value="Update">
+  </form>
+</div>
+
+
+{% endblock %}

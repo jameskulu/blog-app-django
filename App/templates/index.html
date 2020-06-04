@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Post -->
+<div class="container">
+  <a href="{% url 'create-post' %}"><button class='btn btn-primary mt-4'>Add a Post</button></a>
+</div>
+
+<!-- Content -->
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-md-7">
+
+      {% if not posts %}
+      <h3 class="mt-4">Post are not available</h3>
+      {% endif %}
+
+      {% for post in posts  %}
+      <div class="card mt-4">
+        <a style="text-decoration: none; color:black;" href="{% url 'detail-post' post.id %}">
+          <div class="post">
+            <div class="user-detail">
+              <img src="{{ post.author.profile.image.url }}" alt="proflie-pic">
+              <h3>{{ post.author.first_name }} {{ post.author.last_name }}</h3>
+            </div>
+            <p>{{ post.content }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-md-5 mt-4">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Welcome to JBlog</div>
+        <div class="card-body">
+          <p class="card-text">Post your blog in a single click to connect with your friends.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+{% endblock %}
